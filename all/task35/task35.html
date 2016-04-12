@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>可移动的小方块3</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+  </head>
+  <body>
+    <header>
+      <h1>可以移动的小方块</h1>
+      <p>指令:</p>
+      <p>GO: 前进</p>
+      <p>TUN LEF: 左转(逆时针旋转90度)</p>
+      <p>TUN RIG: 右转(顺时针旋转90度)</p>
+      <p>TUN BAC：向右转(旋转180度)</p>
+      <p>TRA LEF：向屏幕的左侧移动一格，方向不变</p>
+      <p>TRA TOP：向屏幕的上面移动一格，方向不变</p>
+      <p>TRA RIG：向屏幕的右侧移动一格，方向不变</p>
+      <p>TRA BOT：向屏幕的下面移动一格，方向不变</p>
+      <p>MOV LEF：方向转向屏幕左侧，并向屏幕的左侧移动一格</p>
+      <p>MOV TOP：方向转向屏幕上面，向屏幕的上面移动一格</p>
+      <p>MOV RIG：方向转向屏幕右侧，向屏幕的右侧移动一格</p>
+      <p>MOV BOT：方向转向屏幕下面，向屏幕的下面移动一格</p>
+    </header>
+    <div class="content">
+      <div class="blockage" id="block"></div>
+      <div class="textarea">
+        <ol id="rankol">
+        </ol>
+        <textarea rows="8" cols="20" spellcheck="false" id="textarea"></textarea>
+        <button type="button" class="other" name="start2">执行2号</button>
+        <button type="button"  class="other" name="resetArea">清空textarea</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>原点</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="control">
+        <input type="text" placeholder="输入..." id="input">
+        <button type="button" id="begin">执行</button>
+        <button type="button" id="go">GO</button>
+        <button type="button" id="left">TUN LEF</button>
+        <button type="button" id="right">TUN RIG</button>
+        <button type="button" id="back">TUN BAC</button>
+        <button type="button" id="reset">归位</button>
+        <br><br>
+        <button type="button" class="other" name="TAR LEF">TAR LEF</button>
+        <button type="button" class="other" name="TAR RIG">TAR RIG</button>
+        <button type="button" class="other" name="TAR TOP">TAR TOP</button>
+        <button type="button" class="other" name="TAR BOT">TAR BOT</button>
+        <button type="button" class="other" name="MOV LEF">MOV LEF</button>
+        <button type="button" class="other" name="MOV TOP">MOV TOP</button>
+        <button type="button" class="other" name="MOV RIG">MOV RIG</button>
+        <button type="button" class="other" name="MOV BOT">MOV BOT</button>
+      </div>
+    </div>
+    <script src="assets/js/index.js"></script>
+  </body>
+</html>

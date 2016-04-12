@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.universe {
+  width: 450px;
+  height: 450px;
+  background: black;
+}
+
+.earth {
+  position: relative;
+  top: 150px;
+  left: 150px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  background: blue;
+}
+
+.console {
+  width: 450px;
+  height: 150px;
+  margin-top: 10px;
+  border: 1px solid black;
+}
+
+#allairship {
+  width: 200px;
+  height: 200px;
+  margin-left: 125px;
+  border-radius: 100px;
+  margin-top: -30px;
+  /*background-color: white;*/
+  z-index: 9999;
+}
+
+.airDiv {
+  position: absolute;
+  left: 349.977px;
+  top: 202.618px;
+  width: 45px;
+  height: 35px;
+  background: white;
+  border-radius: 10px;
+  display: inline-block;
+  font-size: 12px;
+  padding-top: 10px;
+}

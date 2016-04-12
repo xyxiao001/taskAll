@@ -1,0 +1,52 @@
+body {
+  min-width: 1200px;
+}
+
+header {
+  float: left;
+  display: inline-block;
+  width: 400px;
+}
+
+.content {
+  float: left;
+  margin-left: 50px;
+  display: inline-block;
+  width: 600px;
+}
+
+.content table {
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+table td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+}
+
+table tbody td:first-child {
+  border: 0;
+}
+
+table tbody td {
+  border: 1px solid #cccccc;;
+}
+
+.control {
+  margin-top: 20px;
+  margin-left: 40px;
+}
+
+.blockage {
+  position: absolute;
+  width: 43px;
+  height: 33px;
+  background: red;
+  border-top: 10px solid blue;
+  left: 672px;
+  top: 285px;
+  transition: 0.1s all;
+  transform: rotate(0deg);
+}
