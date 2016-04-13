@@ -10,7 +10,8 @@ Calendar.prototype.start = function () {
     var div = document.createElement('div')
     div.setAttribute('class', 'calendar')
     document.body.appendChild(div)
-    create(div)
+    var date = new Date()
+    create(div, date)
     this.div = div
   } else {
     this.div.style.display = 'block'
@@ -37,8 +38,7 @@ document.getElementById('rili').addEventListener('click', function () {
 
 
 //绘制日历
-function create(div) {
-  var date = new Date()
+function create(div, date) {
   var calendarDate = {}
   var weeks = ['一', '二', '三', '四', '五', '六', '日']
   calendarDate.year = date.getFullYear()
@@ -48,6 +48,10 @@ function create(div) {
   calendarDate.Alldays = days(calendarDate.year, calendarDate.month)
   var table = dayTable(calendarDate)
   div.appendChild(table)
+}
+
+function remove(div) {
+  div.removeChild('table')
 }
 
 
