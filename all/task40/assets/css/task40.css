@@ -6,9 +6,26 @@
 .calendar {
   margin: auto;
   margin-top: 100px;
-  width: 250px;
+  width: 265px;
   height: 230px;
   border: 1px solid grey;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  /*overflow: hidden;*/
+}
+
+.calendar table {
+  margin: auto;
+  width: 245px;
+}
+
+.calendar table th,td {
+  text-align: center;
+  min-width: 35px;
+  height: 20px;
+  white-space: nowrap;
   cursor: pointer;
 }
+
+/*.calendar table thead tr th.month {
+  width: 160px;
+}*/
