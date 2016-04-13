@@ -21,11 +21,24 @@
 .calendar table th,td {
   text-align: center;
   min-width: 35px;
-  height: 20px;
+  height: 25px;
   white-space: nowrap;
   cursor: pointer;
 }
 
+.choose {
+  color: white;
+  background-color: black;
+}
+
+.lastdays {
+  opacity: 0.5;
+}
+
+.calendar table tbody td:hover {
+  color: white;
+  background-color: black;
+}
 /*.calendar table thead tr th.month {
   width: 160px;
 }*/

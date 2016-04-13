@@ -46,9 +46,10 @@ function create(div) {
   calendarDate.month = date.getUTCMonth() + 1
   calendarDate.days = date.getDate()
   calendarDate.week = weeks[date.getDay() - 1]
-  console.log(calendarDate)
+  calendarDate.Alldays = days(calendarDate.year, calendarDate.month)
   var table = document.createElement('table')
   var thead = document.createElement('thead')
+  var tbody = document.createElement('tbody')
   var tr1 = document.createElement('tr')
   var th1 = document.createElement('th')
   th1.setAttribute('colspan', 7)
@@ -63,7 +64,69 @@ function create(div) {
     th2.innerHTML = weeks[i]
     tr2.appendChild(th2)
   }
+  //tbody
+  var firstDay = new Date(calendarDate.year + "/" + calendarDate.month + "/" + 1).getDay()
+  var lastDay = days(calendarDate.year, calendarDate.month - 1)
+  var dayArr = []
+  for (var x = 2; x <= firstDay; x++) {
+    dayArr.push(lastDay - firstDay + x)
+  }
+  for (var y = 1; y <= calendarDate.Alldays; y++) {
+    dayArr.push(y)
+  }
+  for (var start = 0; start < 35; start++){
+    if (start === 0 || start % 7 === 0) {
+      var tr = document.createElement('tr')
+    }
+    var td = document.createElement('td')
+    if (start > firstDay - 2) {
+      td.innerHTML = dayArr[start]
+      if (dayArr[start] === calendarDate.days) {
+        td.setAttribute('class', 'choose')
+      }
+      if (start >= calendarDate.Alldays + firstDay - 1) {
+        td.innerHTML = 35 - start
+        td.setAttribute('class', 'lastdays')
+      }
+    } else {
+      td.innerHTML = dayArr[start]
+      td.setAttribute('class', 'lastdays')
+    }
+    tr.appendChild(td)
+    if (start === 0 || start % 7 === 0) {
+      tbody.appendChild(tr)
+    }
+  }
   thead.appendChild(tr2)
   table.appendChild(thead)
+  table.appendChild(tbody)
   div.appendChild(table)
+}
+
+
+//返回天数
+function days(year, month) {
+  var days = 30
+  switch (month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+      days = 31
+      break
+    case 2:
+      if (year % 4 ===  0 && year % 100 !==  0) {
+        days = 29
+      } else {
+        if (year % 400 === 0) {
+          days = 29
+        } else {
+          days = 28
+        }
+      }
+      break
+  }
+  return days
 }
