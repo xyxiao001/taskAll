@@ -41,17 +41,52 @@ function create(div) {
   var date = new Date()
   var calendarDate = {}
   var weeks = ['一', '二', '三', '四', '五', '六', '日']
-  calendarDate.today = date.toLocaleString()
   calendarDate.year = date.getFullYear()
   calendarDate.month = date.getUTCMonth() + 1
   calendarDate.days = date.getDate()
   calendarDate.week = weeks[date.getDay() - 1]
   calendarDate.Alldays = days(calendarDate.year, calendarDate.month)
+  var table = dayTable(calendarDate)
+  div.appendChild(table)
+}
+
+
+//返回天数
+function days(year, month) {
+  var days = 30
+  switch (month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+      days = 31
+      break
+    case 2:
+      if (year % 4 ===  0 && year % 100 !==  0) {
+        days = 29
+      } else {
+        if (year % 400 === 0) {
+          days = 29
+        } else {
+          days = 28
+        }
+      }
+      break
+  }
+  return days
+}
+
+
+//日历
+function dayTable(calendarDate) {
   var table = document.createElement('table')
   var thead = document.createElement('thead')
   var tbody = document.createElement('tbody')
   var tr1 = document.createElement('tr')
   var th1 = document.createElement('th')
+  var weeks = ['一', '二', '三', '四', '五', '六', '日']
   th1.setAttribute('colspan', 7)
   th1.style.height = '30px'
   th1.innerHTML = calendarDate.year + '年' + calendarDate.month + '月'
@@ -100,33 +135,5 @@ function create(div) {
   thead.appendChild(tr2)
   table.appendChild(thead)
   table.appendChild(tbody)
-  div.appendChild(table)
-}
-
-
-//返回天数
-function days(year, month) {
-  var days = 30
-  switch (month) {
-    case 1:
-    case 3:
-    case 5:
-    case 7:
-    case 8:
-    case 10:
-      days = 31
-      break
-    case 2:
-      if (year % 4 ===  0 && year % 100 !==  0) {
-        days = 29
-      } else {
-        if (year % 400 === 0) {
-          days = 29
-        } else {
-          days = 28
-        }
-      }
-      break
-  }
-  return days
+  return table
 }
