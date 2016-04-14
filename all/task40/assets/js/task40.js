@@ -179,6 +179,8 @@ function dayTable(div, calendarDate) {
       } else {
         time.innerHTML = calendarDate.year + '年'
           + calendarDate.month + '月' +  this.innerHTML + '日'
+        calendarDate.days = parseInt(this.innerHTML)
+        create(div, calendarDate)
       }
     })
   }
