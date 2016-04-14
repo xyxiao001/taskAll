@@ -164,21 +164,7 @@ function dayTable(div, calendarDate) {
       tbody.appendChild(tr)
     }
     td.addEventListener('click', function () {
-      if (this.className === 'afterdays') {
-        time.innerHTML = calendarDate.year + '年'
-          + (parseInt(calendarDate.month) + 1) + '月' +  this.innerHTML + '日'
-        if (parseInt(calendarDate.month) === 12) {
-          time.innerHTML = (parseInt(calendarDate.year) + 1) + '年'
-            + '1月' +  this.innerHTML + '日'
-        }
-      } else if (this.className === 'lastdays') {
-        time.innerHTML = calendarDate.year + '年'
-          + (parseInt(calendarDate.month) - 1) + '月' +  this.innerHTML + '日'
-          if (parseInt(calendarDate.month) === 1) {
-            time.innerHTML = (parseInt(calendarDate.year) - 1) + '年'
-              + '12月' +  this.innerHTML + '日'
-          }
-      } else {
+      if (this.className !== 'afterdays' && this.className !== 'lastdays') {
         time.innerHTML = calendarDate.year + '年'
           + calendarDate.month + '月' +  this.innerHTML + '日'
         calendarDate.days = parseInt(this.innerHTML)
