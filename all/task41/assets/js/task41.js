@@ -33,7 +33,6 @@ Calendar.prototype.stop = function () {
 }
 
 var begin = new Calendar()
-begin.start()
 document.getElementById('rili').addEventListener('click', function () {
   if(!begin.isDo) {
     begin.start()
@@ -86,9 +85,9 @@ function dayTable(div, calendarDate) {
   var tr1 = document.createElement('tr')
   var th1 = document.createElement('th')
   var weeks = ['一', '二', '三', '四', '五', '六', '日']
-  var time = document.getElementById('time')
+  var rili = document.getElementById('rili')
   calendarDate.Alldays = days(parseInt(calendarDate.year), parseInt(calendarDate.month))
-  time.innerHTML = calendarDate.year + '年'
+  rili.value = calendarDate.year + '年'
     + calendarDate.month + '月' +  calendarDate.days + '日'
   th1.setAttribute('colspan', 7)
   th1.style.height = '30px'
@@ -165,10 +164,11 @@ function dayTable(div, calendarDate) {
     }
     td.addEventListener('click', function () {
       if (this.className !== 'afterdays' && this.className !== 'lastdays') {
-        time.innerHTML = calendarDate.year + '年'
+        rili.value = calendarDate.year + '年'
           + calendarDate.month + '月' +  this.innerHTML + '日'
         calendarDate.days = parseInt(this.innerHTML)
         create(div, calendarDate)
+        begin.stop()
       }
     })
   }
