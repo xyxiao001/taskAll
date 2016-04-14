@@ -137,8 +137,16 @@ function dayTable(calendarDate) {
     }
     td.addEventListener('click', function () {
       var time = document.getElementById('time')
-      time.innerHTML = calendarDate.year + '年'
-        + calendarDate.month + '月' +  this.innerHTML + '日'
+      if (this.className === 'afterdays') {
+        time.innerHTML = calendarDate.year + '年'
+          + (calendarDate.month + 1) + '月' +  this.innerHTML + '日'
+      } else if (this.className === 'lastdays') {
+        time.innerHTML = calendarDate.year + '年'
+          + (calendarDate.month - 1) + '月' +  this.innerHTML + '日'
+      } else {
+        time.innerHTML = calendarDate.year + '年'
+          + calendarDate.month + '月' +  this.innerHTML + '日'
+      }
     })
   }
   thead.appendChild(tr2)
