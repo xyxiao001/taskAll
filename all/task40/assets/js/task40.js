@@ -13,7 +13,6 @@ Calendar.prototype.start = function () {
   calendarDate.month = this.date.getUTCMonth() + 1
   calendarDate.days = this.date.getDate()
   calendarDate.week = weeks[this.date.getDay() - 1]
-  calendarDate.Alldays = days(parseInt(calendarDate.year), parseInt(calendarDate.month))
   if (!this.isDo && !this.div) {
     var div = document.createElement('div')
     div.setAttribute('class', 'calendar')
