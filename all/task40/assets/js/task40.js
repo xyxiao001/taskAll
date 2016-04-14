@@ -87,6 +87,9 @@ function dayTable(div, calendarDate) {
   var tr1 = document.createElement('tr')
   var th1 = document.createElement('th')
   var weeks = ['一', '二', '三', '四', '五', '六', '日']
+  var time = document.getElementById('time')
+  time.innerHTML = calendarDate.year + '年'
+    + calendarDate.month + '月' +  calendarDate.days + '日'
   th1.setAttribute('colspan', 7)
   th1.style.height = '30px'
   var selectY = document.createElement('select')
@@ -161,7 +164,6 @@ function dayTable(div, calendarDate) {
       tbody.appendChild(tr)
     }
     td.addEventListener('click', function () {
-      var time = document.getElementById('time')
       if (this.className === 'afterdays') {
         time.innerHTML = calendarDate.year + '年'
           + (parseInt(calendarDate.month) + 1) + '月' +  this.innerHTML + '日'
