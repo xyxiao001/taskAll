@@ -125,7 +125,7 @@ function dayTable(calendarDate) {
       }
       if (start >= calendarDate.Alldays + firstDay - 1) {
         td.innerHTML = 35 - start
-        td.setAttribute('class', 'lastdays')
+        td.setAttribute('class', 'afterdays')
       }
     } else {
       td.innerHTML = dayArr[start]
@@ -135,6 +135,11 @@ function dayTable(calendarDate) {
     if (start === 0 || start % 7 === 0) {
       tbody.appendChild(tr)
     }
+    td.addEventListener('click', function () {
+      var time = document.getElementById('time')
+      time.innerHTML = calendarDate.year + '年'
+        + calendarDate.month + '月' +  this.innerHTML + '日'
+    })
   }
   thead.appendChild(tr2)
   table.appendChild(thead)

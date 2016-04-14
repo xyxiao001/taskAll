@@ -35,6 +35,10 @@
   opacity: 0.5;
 }
 
+.afterdays {
+  opacity: 0.5;
+}
+
 .calendar table tbody td:hover {
   color: white;
   background-color: black;
