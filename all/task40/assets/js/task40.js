@@ -3,15 +3,22 @@
 var Calendar = function () {
   this.isDo = false
   this.div = this.div
+  this.date = new Date()
 }
 
 Calendar.prototype.start = function () {
+  var calendarDate = {}
+  var weeks = ['一', '二', '三', '四', '五', '六', '日']
+  calendarDate.year = this.date.getFullYear()
+  calendarDate.month = this.date.getUTCMonth() + 1
+  calendarDate.days = this.date.getDate()
+  calendarDate.week = weeks[this.date.getDay() - 1]
+  calendarDate.Alldays = days(calendarDate.year, calendarDate.month)
   if (!this.isDo && !this.div) {
     var div = document.createElement('div')
     div.setAttribute('class', 'calendar')
     document.body.appendChild(div)
-    var date = new Date()
-    create(div, date)
+    create(div, calendarDate)
     this.div = div
   } else {
     this.div.style.display = 'block'
@@ -38,22 +45,11 @@ document.getElementById('rili').addEventListener('click', function () {
 
 
 //绘制日历
-function create(div, date) {
-  var calendarDate = {}
-  var weeks = ['一', '二', '三', '四', '五', '六', '日']
-  calendarDate.year = date.getFullYear()
-  calendarDate.month = date.getUTCMonth() + 1
-  calendarDate.days = date.getDate()
-  calendarDate.week = weeks[date.getDay() - 1]
-  calendarDate.Alldays = days(calendarDate.year, calendarDate.month)
+function create(div, calendarDate) {
+  div.innerHTML = ''
   var table = dayTable(calendarDate)
   div.appendChild(table)
 }
-
-function remove(div) {
-  div.removeChild('table')
-}
-
 
 //返回天数
 function days(year, month) {
@@ -154,3 +150,10 @@ function dayTable(calendarDate) {
   table.appendChild(tbody)
   return table
 }
+
+//
+// function a() {
+//   begin.date = '2015/3/5'
+//   begin.start()
+// }
+// a()
