@@ -41,7 +41,7 @@
 
 .calendar table tbody td:hover {
   color: white;
-  background-color: black;
+  background-color: blue;
 }
 /*.calendar table thead tr th.month {
   width: 160px;
