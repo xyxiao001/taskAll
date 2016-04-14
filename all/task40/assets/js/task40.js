@@ -90,7 +90,7 @@ function dayTable(div, calendarDate) {
   th1.setAttribute('colspan', 7)
   th1.style.height = '30px'
   var selectY = document.createElement('select')
-  for (var y = 1900; y <= 2100; y++) {
+  for (var y = 1970; y <= 2100; y++) {
     var option = document.createElement('option')
     option.innerHTML = y + '年'
     if (y === parseInt(calendarDate.year)) {
@@ -136,6 +136,7 @@ function dayTable(div, calendarDate) {
   for (var y = 1; y <= calendarDate.Alldays; y++) {
     dayArr.push(y)
   }
+  var l = 0;
   for (var start = 0; start < 35; start++){
     if (start === 0 || start % 7 === 0) {
       var tr = document.createElement('tr')
@@ -147,7 +148,8 @@ function dayTable(div, calendarDate) {
         td.setAttribute('class', 'choose')
       }
       if (start >= calendarDate.Alldays + firstDay - 1) {
-        td.innerHTML = 35 - start
+        l = l + 1
+        td.innerHTML = l
         td.setAttribute('class', 'afterdays')
       }
     } else {
@@ -163,9 +165,17 @@ function dayTable(div, calendarDate) {
       if (this.className === 'afterdays') {
         time.innerHTML = calendarDate.year + '年'
           + (parseInt(calendarDate.month) + 1) + '月' +  this.innerHTML + '日'
+        if (parseInt(calendarDate.month) === 12) {
+          time.innerHTML = (parseInt(calendarDate.year) + 1) + '年'
+            + '1月' +  this.innerHTML + '日'
+        }
       } else if (this.className === 'lastdays') {
         time.innerHTML = calendarDate.year + '年'
           + (parseInt(calendarDate.month) - 1) + '月' +  this.innerHTML + '日'
+          if (parseInt(calendarDate.month) === 1) {
+            time.innerHTML = (parseInt(calendarDate.year) - 1) + '年'
+              + '12月' +  this.innerHTML + '日'
+          }
       } else {
         time.innerHTML = calendarDate.year + '年'
           + calendarDate.month + '月' +  this.innerHTML + '日'
@@ -177,10 +187,3 @@ function dayTable(div, calendarDate) {
   table.appendChild(tbody)
   return table
 }
-
-//
-// function a() {
-//   begin.date = '2015/3/5'
-//   begin.start()
-// }
-// a()
