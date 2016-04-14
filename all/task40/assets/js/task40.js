@@ -47,7 +47,7 @@ document.getElementById('rili').addEventListener('click', function () {
 //绘制日历
 function create(div, calendarDate) {
   div.innerHTML = ''
-  var table = dayTable(calendarDate)
+  var table = dayTable(div, calendarDate)
   div.appendChild(table)
 }
 
@@ -80,7 +80,7 @@ function days(year, month) {
 
 
 //日历
-function dayTable(calendarDate) {
+function dayTable(div, calendarDate) {
   var table = document.createElement('table')
   var thead = document.createElement('thead')
   var tbody = document.createElement('tbody')
@@ -89,7 +89,34 @@ function dayTable(calendarDate) {
   var weeks = ['一', '二', '三', '四', '五', '六', '日']
   th1.setAttribute('colspan', 7)
   th1.style.height = '30px'
-  th1.innerHTML = calendarDate.year + '年' + calendarDate.month + '月'
+  var selectY = document.createElement('select')
+  for (var y = 1900; y <= 2100; y++) {
+    var option = document.createElement('option')
+    option.innerHTML = y + '年'
+    if (y === parseInt(calendarDate.year)) {
+      option.selected = 'selected'
+    }
+    selectY.appendChild(option)
+  }
+  selectY.addEventListener('change', function () {
+    calendarDate.year = this.value.substring(0, this.value.length - 1)
+    create(div, calendarDate)
+  })
+  th1.appendChild(selectY)
+  var selectM = document.createElement('select')
+  for (var m = 1; m <= 12; m++) {
+    var option = document.createElement('option')
+    option.innerHTML = m + '月'
+    if (m === parseInt(calendarDate.month)) {
+      option.selected = 'selected'
+    }
+    selectM.appendChild(option)
+  }
+  selectM.addEventListener('change', function () {
+    calendarDate.month = this.value.substring(0, this.value.length - 1)
+    create(div, calendarDate)
+  })
+  th1.appendChild(selectM)
   th1.setAttribute('class', 'month')
   tr1.appendChild(th1)
   thead.appendChild(tr1)
@@ -135,10 +162,10 @@ function dayTable(calendarDate) {
       var time = document.getElementById('time')
       if (this.className === 'afterdays') {
         time.innerHTML = calendarDate.year + '年'
-          + (calendarDate.month + 1) + '月' +  this.innerHTML + '日'
+          + (parseInt(calendarDate.month) + 1) + '月' +  this.innerHTML + '日'
       } else if (this.className === 'lastdays') {
         time.innerHTML = calendarDate.year + '年'
-          + (calendarDate.month - 1) + '月' +  this.innerHTML + '日'
+          + (parseInt(calendarDate.month) - 1) + '月' +  this.innerHTML + '日'
       } else {
         time.innerHTML = calendarDate.year + '年'
           + calendarDate.month + '月' +  this.innerHTML + '日'
