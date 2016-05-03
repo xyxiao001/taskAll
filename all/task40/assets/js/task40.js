@@ -131,6 +131,9 @@ function dayTable(div, calendarDate) {
   }
   //tbody
   var firstDay = new Date(calendarDate.year + "/" + calendarDate.month + "/" + 1).getDay()
+  if (firstDay === 0) {
+    firstDay = 7
+  }
   var lastDay = days(calendarDate.year, calendarDate.month - 1)
   var dayArr = []
   for (var x = 2; x <= firstDay; x++) {
@@ -140,7 +143,7 @@ function dayTable(div, calendarDate) {
     dayArr.push(y)
   }
   var l = 0;
-  for (var start = 0; start < 35; start++){
+  for (var start = 0; start < 42; start++){
     if (start === 0 || start % 7 === 0) {
       var tr = document.createElement('tr')
     }
