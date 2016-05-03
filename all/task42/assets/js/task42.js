@@ -92,7 +92,7 @@ function dayTable(div, calendarDate) {
   th1.setAttribute('colspan', 7)
   th1.style.height = '30px'
   var selectY = document.createElement('select')
-  for (var y = 1970; y <= 2100; y++) {
+  for (var y = 1970; y <= 2050; y++) {
     var option = document.createElement('option')
     option.innerHTML = y + '年'
     if (y === parseInt(calendarDate.year)) {
@@ -130,6 +130,9 @@ function dayTable(div, calendarDate) {
   }
   //tbody
   var firstDay = new Date(calendarDate.year + "/" + calendarDate.month + "/" + 1).getDay()
+  if (firstDay === 0) {
+    firstDay = 7
+  }
   var lastDay = days(calendarDate.year, calendarDate.month - 1)
   var dayArr = []
   for (var x = 2; x <= firstDay; x++) {
@@ -139,7 +142,7 @@ function dayTable(div, calendarDate) {
     dayArr.push(y)
   }
   var l = 0;
-  for (var start = 0; start < 35; start++){
+  for (var start = 0; start < 42; start++){
     if (start === 0 || start % 7 === 0) {
       var tr = document.createElement('tr')
     }
