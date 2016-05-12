@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>弹幕</title>
+    <style type="text/css">
+      body {
+        max-width: 100%;
+      }
+      .show {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        border: 1px solid black;
+        overflow: hidden;
+      }
+
+      .show span {
+        position: absolute;
+        right: -100px;
+        transition: all 8s linear;
+        color: black;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        word-break:keep-all;
+        white-space:nowrap;
+      }
+
+      .control {
+        margin: auto;
+        padding-top: 20px;
+        width: 280px;
+      }
+
+      input {
+        width: 200px;
+        height: 30px;
+      }
+
+      button {
+        width: 50px;
+        height: 36px;
+      }
+
+      .progress {
+        height: 25px;
+        margin-bottom: 20px;
+        width: 500px;
+        overflow: hidden;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        text-align: center;
+      }
+
+      .test {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 12px;
+        line-height: 20px;
+        color: #fff;
+        text-align: center;
+        background-color: #428bca;
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,0.15);
+        -webkit-transition: width .6s ease;
+        transition: width .6s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="show">
+
+    </div>
+    <div class="control">
+      <input type="text" name="danmu" value="" placeholder="骚男！ 来一发弹幕">
+      <button type="button" name="send">发射</button>
+    </div>
+
+    <section>
+      <span>好吃</span>
+      <div class="progress">
+        <a class="test" id="good">0</a>
+      </div>
+
+     <span>难吃</span>
+      <div class="progress">
+        <a class="test" id="bad">0</a>
+      </div>
+
+      <button type="button" name="good">好吃</button>
+      <button type="button" name="bad">难吃</button>
+
+      <p>评价人数<span id="num">0</span></p>
+    </section>
+
+    <script type="text/javascript">
+      var show = document.querySelector('.show')
+      var input = document.querySelector('input')
+      document.querySelector('button[name=send]').addEventListener('click', function () {
+        if (input.value === '') {
+          alert('骚男，输入弹幕')
+        } else {
+          add(input.value)
+          input.value = ''
+        }
+      })
+      function add(value) {
+        var span = document.createElement('span')
+        span.innerHTML = value
+        span.style.top = Math.random()*200 + 'px'
+        show.appendChild(span);
+        setTimeout(function () {
+          span.style.right = '110%'
+        }, 200)
+      }
+      var list = ['第一', '前排', '我是第一', '挤一挤', '这么早',
+                  '第一', '前排', '我是第一', '挤一挤', '这么早',
+                  '第一', '前排', '我是第一', '挤一挤', '这么早',
+                  '第一', '前排', '我是第一', '挤一挤', '这么早',
+                  '第一', '前排', '我是第一', '挤一挤', '这么早',
+                  '第一', '前排', '我是第一', '挤一挤', '这么早',
+                  '第一', '前排', '我是第一', '挤一挤', '这么早']
+      var j = -1
+      setInterval(function () {
+        if (j < list.length - 1) {
+          j = j + 1
+        } else {
+          return false
+        }
+        add(list[j])
+      }, 1000)
+
+      //进度条
+      var total = 0
+      var good = 0
+      var bad = 0
+      var showtotal = document.getElementById('num')
+      document.querySelector('button[name=good]').addEventListener('click', function () {
+        total = total + 1
+        good = good + 1
+        showtotal.innerHTML = total
+        document.getElementById('good').innerHTML = good
+        document.getElementById('good').style.width = (good / total)*100 + '%'
+        document.getElementById('bad').style.width = (bad / total)*100 + '%'
+      })
+
+      document.querySelector('button[name=bad]').addEventListener('click', function () {
+        total = total + 1
+        bad = bad + 1
+        showtotal.innerHTML = total
+        document.getElementById('bad').innerHTML = bad
+        document.getElementById('bad').style.width = (bad / total)*100 + '%'
+        document.getElementById('good').style.width = (good / total)*100 + '%'
+      })
+    </script>
+  </body>
+</html>
