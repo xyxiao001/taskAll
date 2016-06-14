@@ -39,3 +39,11 @@ function isString(obj){ //判断对象是否是字符串
     return false
   }
 }
+
+// 实现一个函数 convert
+// 给定一个字符串，例如 "abacd"，给定一个次序变换后的结果，例如： "abcda"
+// 找出可以完成这一“变换”的“交换堆栈“操作，用i表示push，用o表示pop
+function convert(from, to){
+  return to
+}
+console.log(convert('abcd', 'cadb'))
