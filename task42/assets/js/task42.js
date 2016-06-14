@@ -134,6 +134,9 @@ function dayTable(div, calendarDate) {
     firstDay = 7
   }
   var lastDay = days(calendarDate.year, calendarDate.month - 1)
+  if (firstDay === 0) {
+    firstDay = 7
+  }
   var dayArr = []
   for (var x = 2; x <= firstDay; x++) {
     dayArr.push(lastDay - firstDay + x)
