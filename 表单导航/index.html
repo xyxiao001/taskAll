@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>表单导航</title>
+    <link rel="stylesheet" href="css/jquery.steps.css" media="screen" title="no title" charset="utf-8">
+    <style type="text/css">
+      #steps div.steps {
+        display: block;
+        margin: auto;
+        width: 1000px;
+        height: 100px;
+      }
+
+      #steps .content {
+        display: block;
+        margin: auto;
+        width: 1000px;
+        margin-bottom: 30px;
+      }
+
+      #steps .actions {
+        display: block;
+        margin: auto;
+        width: 1000px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="steps">
+      <h3>基本信息</h3>
+      <section>
+        <p>1</p>
+      </section>
+      <h3>活动页面</h3>
+      <section>
+        <p>2</p>
+      </section>
+      <h3>活动规则</h3>
+      <section>
+        <p>3</p>
+      </section>
+      <h3>活动确认</h3>
+      <section>
+        <p>4</p>
+      </section>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/2.2.3/jquery.js"></script>
+    <script src="js/jquery.steps.js"></script>
+    <script type="text/javascript">
+      $("#steps").steps({
+        headerTag: "h3",
+        bodyTag: "section",
+        transitionEffect: "slideLeft",
+        autoFocus: true,
+        labels: {
+          cancel: "取消",
+          current: "当前页",
+          pagination: "页面",
+          finish: "完成",
+          next: "下一步",
+          previous: "上一步",
+          loading: "加载中 ..."
+        }
+      });
+    </script>
+  </body>
+</html>
