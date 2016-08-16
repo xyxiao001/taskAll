@@ -179,3 +179,7 @@ a, a:hover, a:link, a:focus {
   float: left;
   margin-top: 50px;
 }
+
+.bwizard .form-group input[name="daterange"] {
+  padding-left: 5px;
+}

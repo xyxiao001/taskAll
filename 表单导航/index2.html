@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>表单导航</title>
     <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <link rel="stylesheet" href="css/steps.css" media="screen" title="no title" charset="utf-8">
     <style type="text/css">
     </style>
@@ -30,7 +31,7 @@
             </div>
             <div class="form-group">
               <label for="name">活动时间:</label>
-              <input type="text" class="form-control" placeholder="点击选择时间">
+              <input type="text" name="daterange" placeholder="点击选择时间" />
             </div>
             <div class="form-group">
               <label for="message">小贴士:</label>
@@ -46,8 +47,25 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/steps.js"></script>
+    <script type="text/javascript" src="http:////cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <script type="text/javascript">
        $("#wizard").bwizard();
+       $(function() {
+        $('input[name="daterange"]').daterangepicker({
+          timePicker: true,
+          timePicker24Hour: true,
+          timePickerIncrement: 30,
+          locale: {
+            format: 'YYYY-MM-DD h:mm',
+            applyLabel: "确定",
+            cancelLabel: "取消",
+            weekLabel: "星期",
+            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+          },
+        });
+      });
     </script>
   </body>
 </html>
