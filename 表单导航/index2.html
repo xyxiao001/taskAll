@@ -13,13 +13,16 @@
   	<div class="content">
   		<div id="wizard">
   			<ol>
-  				<li>基本信息</li>
-  				<li>活动页面</li>
+  				<li>页面样式</li>
+  				<li>奖项参数</li>
   				<li>活动规则</li>
-  				<li>活动确认</li>
+  				<li>效果预览</li>
   			</ol>
-        <div>
-          <form class="" action="" method="post">
+        <div class="page">
+          <div class="left">
+            <img src="style.png" alt="" />
+          </div>
+          <div class="right">
             <div class="form-group">
               <label for="name">活动名称:</label>
               <input type="text" class="form-control" placeholder="每日免费抽取百万优惠">
@@ -27,7 +30,7 @@
             <div class="form-group">
               <label for="style">活动样式:</label>
               <input type="text" class="form-control choose-style" disabled="disabled" placeholder="默认样式">
-              <button type="button" name="button" class="btn btn-primary">改变样式</button>
+              <button type="button" name="button" class="btn btn-active">改变样式</button>
             </div>
             <div class="form-group">
               <label for="name">活动时间:</label>
@@ -37,11 +40,193 @@
               <label for="message">小贴士:</label>
               <textarea name="name" rows="8" cols="40" class="form-control" placeholder="1.每人有三次免费活动；只有摇到三个完全一样的图标"></textarea>
             </div>
-          </form>
+          </div>
         </div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
+        <div class="page">
+          <div class="left">
+            <img src="style.png" alt="" />
+          </div>
+          <div class="right">
+            <div class="form-group">
+              <button type="button" name="add" class="btn btn-active" data-toggle="modal" data-target="#addActivty">新增</button>
+              <div class="modal fade" id="addActivty" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">新增奖项</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form class="addItem" action="index.html" method="post">
+                        <div class="form-group">
+                          <label for="name">奖项:</label>
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">奖品数量:</label>
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">日最大中奖数:</label>
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">中奖率:</label>
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                        <div class="form-group">
+                          <label for="name">中奖提示语:</label>
+                          <input type="text" class="form-control" placeholder="">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-active">保存</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table class="table table-bordered table-hover table-responsive">
+              <thead>
+                <tr>
+                  <th>奖项</th>
+                  <th>奖品图片</th>
+                  <th>奖品数量</th>
+                  <th>日最大中奖数</th>
+                  <th>中奖率</th>
+                  <th>中奖提示语</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="show-message">
+              <p>1.奖项的名称，该奖项的名称；</p>
+              <p>2.奖品图片：图片大小根据UI给出的尺寸建议</p>
+              <p>3.奖品数量：奖品的中数量；</p>
+              <p>4.日最大中奖数：每天该奖品最多中奖的数量；</p>
+              <p>5.中奖概率：抽奖用户获得该奖品的概率；</p>
+              <p>6.中奖提示语：当用户抽中该奖品时，显示给用户的提示语</p>
+              <p>7.中奖概率不能大于100%</p>
+            </div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="left">
+            <img src="style.png" alt="" />
+          </div>
+          <div class="right">
+            <form class="activityRole" action="index.html" method="post">
+              <div class="form-group">
+                <label for="name">活动名称:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">活动时间:</label>
+                <input type="text" class="form-control" name="daterange" placeholder="">
+              </div>
+              <div class="form-group two">
+                <div class="form-group">
+                  <label for="name">累计抽奖次数:</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                  <label for="name">单人日抽奖次数:</label>
+                  <input type="text" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">单人最多中奖次数:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">最大参与人数:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">前置任务:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">会员等级:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">应用积分:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">积分处理:</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                    <span>奖励</span>
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    <span>消耗<span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="name">后续福利:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="name">最大参与人数:</label>
+                <input type="text" class="form-control" placeholder="">
+              </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox">显示已参与人数
+                </label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="page">
+          <div class="left">
+            <img src="style.png" alt="" />
+          </div>
+          <div class="right">
+            <div class="form-group">
+              <label for="" style="margin-right: 20px;">活动预览:</label>
+              <img src="er.png">
+              <button type="button" name="button" class="btn btn-active">下载二维码</button>
+            </div>
+            <p>活动链接：
+              <a href="https://modao.cc/app/M4mXBdsDxtnqs9chDuufiyRdxNxWnEV" target="_blank" style="color: blue">
+              https://modao.cc/app/M4mXBdsDxtnqs9chDuufiyRdxNxWnEV<a>
+            </p>
+          </div>
+        </div>
   		</div>
   	</div>
     <script src="js/jquery.js"></script>

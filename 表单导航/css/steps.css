@@ -1,5 +1,5 @@
 .content {
-  width: 700px;
+  width: 1000px;
   margin: auto;
 }
 
@@ -13,6 +13,30 @@ a, a:hover, a:link, a:focus {
 
 .bwizard .well {
 	margin: 3px 0;
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.bwizard .well .left {
+  float: left;
+  width: 30%;
+  margin-right: 5%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.bwizard .well .left img {
+  width: 100%;
+  height: auto;
+}
+
+
+.bwizard .well .right {
+  float: right;
+  padding-top: 10px;
+  width: 63%;
+  height: 100%;
 }
 
 .bwizard-steps {
@@ -94,11 +118,11 @@ a, a:hover, a:link, a:focus {
 
 .bwizard-steps .active {
 	color: #fff;
-	background: #007acc
+	background: #1ab394;
 }
 
 .bwizard-steps .active:after {
-	border-left-color: #007acc
+	border-left-color: #1ab394;
 }
 
 .bwizard-steps a {
@@ -111,7 +135,8 @@ a, a:hover, a:link, a:focus {
 }
 
 .bwizard-steps a:hover {
-	text-decoration: none
+	text-decoration: none;
+  background-color: none !important;
 }
 
 .bwizard-steps.clickable li:not(.active) {
@@ -141,6 +166,15 @@ a, a:hover, a:link, a:focus {
 		border: 0;
 	}
 }
+
+.bwizard span.label {
+  color: black;
+}
+
+.bwizard li.active span.label {
+  color: white;
+}
+
 
 .bwizard ul.pager {
   width: 35%;
@@ -180,6 +214,73 @@ a, a:hover, a:link, a:focus {
   margin-top: 50px;
 }
 
+.bwizard .form-group button.btn-active {
+  background-color: #1ab394;
+  color: white;
+}
+
 .bwizard .form-group input[name="daterange"] {
   padding-left: 5px;
+}
+
+.bwizard li.next a, li.previous a{
+  color: white;
+  background-color: #1ab394;
+}
+
+.bwizard li.next a:link, a:focus, a:visited{
+  color: white;
+  background-color: #1ab394;
+}
+
+li.previous a:link, a:focus, a:visited{
+  color: white;
+  background-color: #1ab394;
+}
+
+.bwizard table td,th {
+  text-align: center;
+  height: 40px;
+}
+
+#addActivty {
+  position: absolute;
+  top: 100px;
+  left: 20%;
+}
+
+#addActivty form.addItem input[type="text"] {
+  float: right;
+  width: 60%;
+}
+
+.bwizard form.activityRole div.form-group label {
+  width: 25%;
+  font-size: 16px;
+}
+
+.bwizard form.activityRole div.form-group  input {
+  width: 65%;
+}
+
+.bwizard div.radio {
+  display: inline-block;
+  width: 30%;
+}
+
+.bwizard div.radio span {
+  display: inline-block;
+}
+
+.bwizard form.activityRole .two .form-group {
+  display: inline-block;
+  width: 45%;
+}
+
+.bwizard form.activityRole .two .form-group label {
+  width: 60%;
+}
+
+.bwizard form.activityRole .two .form-group input {
+  width: 30%;
 }
