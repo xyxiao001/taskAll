@@ -9,21 +9,40 @@
     </style>
   </head>
   <body>
-
-    	<div class="content">
-    		<div id="wizard">
-    			<ol>
-    				<li>基本信息</li>
-    				<li>活动页面</li>
-    				<li>活动规则</li>
-    				<li>活动确认</li>
-    			</ol>
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-    		</div>
-    	</div>
+  	<div class="content">
+  		<div id="wizard">
+  			<ol>
+  				<li>基本信息</li>
+  				<li>活动页面</li>
+  				<li>活动规则</li>
+  				<li>活动确认</li>
+  			</ol>
+        <div>
+          <form class="" action="" method="post">
+            <div class="form-group">
+              <label for="name">活动名称:</label>
+              <input type="text" class="form-control" placeholder="每日免费抽取百万优惠">
+            </div>
+            <div class="form-group">
+              <label for="style">活动样式:</label>
+              <input type="text" class="form-control choose-style" disabled="disabled" placeholder="默认样式">
+              <button type="button" name="button" class="btn btn-primary">改变样式</button>
+            </div>
+            <div class="form-group">
+              <label for="name">活动时间:</label>
+              <input type="text" class="form-control" placeholder="点击选择时间">
+            </div>
+            <div class="form-group">
+              <label for="message">小贴士:</label>
+              <textarea name="name" rows="8" cols="40" class="form-control" placeholder="1.每人有三次免费活动；只有摇到三个完全一样的图标"></textarea>
+            </div>
+          </form>
+        </div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+  		</div>
+  	</div>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/steps.js"></script>

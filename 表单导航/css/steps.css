@@ -142,8 +142,40 @@ a, a:hover, a:link, a:focus {
 	}
 }
 
-#wizard ul.pager {
+.bwizard ul.pager {
   width: 35%;
   margin: auto;
+  margin-top: 50px;
+}
+
+.bwizard .form-group  label {
+  font-size: 18px;
+  padding-top: 3px;
+}
+
+.bwizard .form-group input {
+  display: inline-block;
+  width: 80%;
+  margin-left: 5%;
+  height: 40px;
+}
+
+.bwizard .form-group input.choose-style {
+  width: 30%;
+}
+
+.bwizard .form-group input.choose-style + button {
+  margin-left: 30px;
+}
+
+.bwizard .form-group textarea {
+  display: inline-block;
+  width: 80%;
+  margin-top: 20px;
+  margin-left: 8%;
+}
+
+.bwizard .form-group label[for="message"] {
+  float: left;
   margin-top: 50px;
 }
