@@ -1,0 +1,93 @@
+html{
+	font-size: 40%;
+}
+
+body{
+	margin: 0;
+	padding: 0;
+	font-family: "microsoft yahei";
+}
+
+input[type="submit"],input[type="text"]:checked:after {
+-webkit-appearance: none;
+}
+
+.wrapper{
+	max-width: 54rem;
+	margin: 0 auto;
+	background: url(../img/bg.png);
+}
+
+#hospital .title_img img{
+	width: 100%;
+}
+
+#hospital .introdution{
+	color: #7C4338;
+	position: relative;
+}
+
+#hospital .introdution .intro_img, .message .mes_img{
+	height: 4rem;
+	position: absolute;
+	left: 50%;
+	top: -2.5rem;
+	margin-left: -7.1rem;
+}
+
+#hospital .introdution .content, .message .content{
+	width: 83%;
+	margin: 40px auto;
+	min-height: 0px;
+	padding: 25px 15px;
+	border-radius: 20px;
+	font-size: 1.4rem;
+	background: #FFFFFF url(../img/content_bg.png)no-repeat center center;
+	background-size: 80%;
+}
+
+#hospital .message{
+	text-align: center;
+	color: #7C4338;
+	padding-bottom: 1rem;
+	position: relative;
+}
+
+#hospital .message .form-group{
+	margin: 1.5rem auto;
+	text-align: left;
+	font-size: 1.4rem;
+}
+
+#hospital .message .form-group label{
+	height: 2.8rem;
+	line-height: 2.8rem;
+}
+
+#hospital .message .form-group input{
+	width: 60%;
+	padding-left: 1rem;
+	height: 2.8rem;
+	position: absolute;
+	left: 26%;
+	outline: none;
+	border: none;
+	background-color: rgba(0,0,0,0);
+	border-bottom: 1px solid #7C4338;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+#hospital .message .submit{
+	height: 4.5rem;
+	width: 10rem;
+	color: #FED761;
+	font-size: 2.5rem;
+	font-weight: bold;
+	background: #7C4338;
+	border-radius: 2rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	-webkit-appearance: none;
+}
+

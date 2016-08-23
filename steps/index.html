@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>报名活动</title>
+  <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/steps.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="css/editor.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/index.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/hospital.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css"/>
+</head>
+
+<body>
+  <div class="content">
+    <div class="template">
+      <div class="b_title">
+        <div> < 返回 </div>
+        <span class="title-name">浙江大学国际医院讲座报名</span>
+        <div>···</div>
+      </div>
+      <section class="left">
+        <div class="wrapper" id="hospital">
+          <div class="title_img">
+            <img src="img/img.png"/>
+          </div>
+          <div class="introdution">
+            <img class="intro_img" src="img/description.png"/>
+            <div class="content">
+              <p>【报名时间】 即日起截止至2016-9-15 12: 00</p>
+              <p>【报名方式】 请准确填写以下内容报名！</p>
+              <p>【报名人数】 仅限100人，先到先得！</p>
+              <p>【活动时间】 2016-9-15 （周日）9:00-11:00</p>
+              <p>【地址】 杭州市下城区东新路848号浙大国际医院</p>
+              <p>【提醒】 如放弃参与，请在就诊前一天致电告知</p>
+              <p>【提醒】 活动当天请携带以往相关检查资料。</p>
+            </div>
+          </div>
+          <div class="message">
+            <img class="mes_img" src="img/message.png"/>
+             <div class="content">
+              <form action="" method="post">
+                <div class="main">
+                  <div class="form-group">
+                    <label for="username">【姓名】</label>
+                    <input type="text" id="username" />
+                  </div>
+                  <div class="form-group">
+                    <label for="tel">【电话】</label>
+                    <input type="text" id="tel" />
+                  </div>
+                  <div class="form-group">
+                    <label for="id_num">【身份证】</label>
+                    <input type="text" id="id_num" />
+                  </div>
+                  <div class="form-group">
+                    <label for="address">【地址】</label>
+                    <input type="text" id="address" />
+                  </div>
+                </div>
+                <input class="submit" type="submit" value="提交"/>
+              </form>
+             </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="steps">
+      <ol>
+        <li>页面样式</li>
+        <li>活动页面</li>
+        <li>活动预览</li>
+      </ol>
+      <div class="page1">
+        <!-- iphone6 375*667  iphone5 320*568-->
+        <button type="button" class="btn btn-primary">更换模板样式</button>
+        <section class="right">
+          <div class="form-group">
+            <label for="title">活动标题:</label>
+            <input type="text" class="form-control" name="activity-title" value="">
+          </div>
+          <!-- <div class="form-group">
+            <label for="title">标题字号:</label>
+            <input type="number" class="form-control"  name="title" value="">
+            <span>px</span>
+          </div> -->
+          <div class="form-group">
+            <label for="title">宣传图:</label>
+            <input type="file"  accept="image/*" class="form-control" name="campaign" value="">
+            <span>建议尺寸：宽度360，高度不限</span>
+          </div>
+          <!-- <div class="form-group">
+            <label for="title">底图:</label>
+            <input type="file"  accept="image/*" class="form-control" name="bg-img" value="">
+            <span>建议尺寸：宽度360，高度不限</span>
+          </div> -->
+          <div class="form-group">
+            <label for="title">活动说明:</label>
+            <div id="edit" style="height:260px;"></div>
+          </div>
+          <div class="form-group">
+            <label for="title">项目文字字号:</label>
+            <input type="number" class="form-control" name="font-size" value="">
+            <span>px</span>
+          </div>
+          <div class="form-group">
+            <label for="title">按钮文字:</label>
+            <input type="text" class="form-control" name="submit" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">按钮字号:</label>
+            <input type="text" class="form-control" name="sub-size" value="">
+            <span>px</span>
+          </div>
+          <div class="form-group">
+            <label for="title">按钮圆角:</label>
+            <input type="text" class="form-control" name="sub-radius" value="">
+            <span>px</span>
+          </div>
+        </section>
+      </div>
+      <!--page2-->
+      <div class="page2">
+        <section class="right">
+          <div class="form-group">
+            <label for="title">活动时间:</label>
+            <input type="text" name="time" class="form-control" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">最大参与人数:</label>
+            <input type="number" class="form-control" name="title" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">前置任务:</label>
+            <input type="text" class="form-control" name="title" value="+选择已有活动">
+          </div>
+          <div class="form-group">
+            <label for="title">会员等级:</label>
+            <input type="text" class="form-control" name="title" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">积分处理:</label>
+           	<label class="checkbox-inline">
+							<input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>奖励
+						</label>
+						<label class="checkbox-inline">
+							<input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2">消耗
+						</label>
+						<input type="text"class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="title">后续福利:</label>
+            <input type="text" class="form-control" name="title" value="+选择已有活动">
+          </div>
+          <div class="form-group">
+            <label for="title"></label>
+            <input type="checkbox" id="join_num"/>
+            <label for="join_num">显示已参与人数</label>
+          </div>
+		      <div class="form-group">
+		        <label for="title">活动分享图片:</label>
+		        <input type="file" class="form-control" name="title" value="">
+		        <span>建议尺寸40×40</span>
+          </div>
+          <div class="form-group">
+		        <label for="title">活动标签:</label>
+		        <input type="text" class="form-control" name="title" value="">
+		        <span>点击打开标签库</span>
+          </div>
+        </section>
+      </div>
+      <!--page3-->
+      <div class="page3">
+        <section class="right">
+        		<figure>
+        			<caption>活动预览:</caption>
+        			<img src="img/qrcode.png" alt="活动二维码" />
+        			<button>下载二维码</button>
+        		</figure>
+        		<p>活动链接： <a href="https://modao.cc/app/M4mXBdsDxtnqs9chDuufiyRdxNxWnEV">https://modao.cc/app/M4mXBdsDxtnqs9chDuufiyRdxNxWnEV</a></p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/steps.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/daterangepicker.js"></script>
+  <script type="text/javascript">
+    //开启步骤
+    $("#steps").bwizard();
+
+    // 下一步的限制方法
+    var myNext = function () {};
+
+    // 生成编辑器
+    var editor = new wangEditor('edit');
+    editor.create();
+
+    // 获取编辑器区域完整html代码
+    var html = editor.$txt.html();
+
+    // 获取编辑器纯文本内容
+    var text = editor.$txt.text();
+
+    // 获取模板内容 动态添加进表单
+    var data = {
+      title: '浙江大学国际医院讲座报名',
+      introdution: '<p>【报名时间】 即日起截止至2016-9-15 12: 00</p>' +
+                    '<p>【报名方式】 请准确填写以下内容报名！</p>' +
+                    '<p>【报名人数】 仅限100人，先到先得！</p>' +
+                    '<p>【活动时间】 2016-9-15 （周日）9:00-11:00</p>' +
+                    '<p>【地址】 杭州市下城区东新路848号浙大国际医院</p>' +
+                    '<p>【提醒】 如放弃参与，请在就诊前一天致电告知</p>' +
+                    '<p>【提醒】 活动当天请携带以往相关检查资料。</p>',
+      info: [
+        {id: 1, name: 'username', text: '姓名', type: 'text'},
+        {id:2, name: 'phone', text: '电话', type: 'text'},
+        {id:3, name: 'IDcard', text: '身份证', type:'text'},
+        {id:4, name: 'address', text: '地址', type: 'text'}
+      ],
+      fontSize: '14'
+    }
+
+    $(function () {
+      var update = {
+        title: function () {
+          $('span.title-name').text($('.right input[name="activity-title"]').val())
+        },
+        introdution: function () {
+          $('.introdution .content').html(editor.$txt.html())
+        },
+        fontSize: function () {
+          $('.wrapper').css({fontSize: $('.right input[name="font-size"]').val() + 'px'})
+        },
+        buttonText: function () {
+          $('.main + input').val($('.right input[name="submit"]').val() + 'px')
+        },
+        buttonSize: function () {
+          $('.main + input').css({fontSize: $('.right input[name="sub-size"]').val() + 'px'})
+        },
+        buttonRadius: function () {
+          $('.main + input').css({borderRadius: $('.right input[name="sub-radius"]').val() + 'px'})
+        }
+      }
+      // 活动标题
+      $('.right input[name="activity-title"]').val(data.title).keyup(update.title).blur(update.title)
+
+      //活动说明
+      editor.$txt.html(data.introdution)
+      $('#edit').keyup(update.introdution).blur(update.introdution)
+
+      // 项目字号
+        $('.right input[name="font-size"]').val(data.fontSize).keyup(update.fontSize).blur(update.fontSize)
+
+      // 宣传图
+        $('.right input[name="campaign"]').change(function () {
+          var file = document.querySelector('input[name="campaign"]').files[0]
+          if(!/.(gif|jpg|jpeg|png|gif|jpg|png)$/.test(file.name)){
+            alert("图片类型必须是.gif,jpeg,jpg,png中的一种")
+            $('.right input[name="campaign"]').val('')
+          } else {
+            var src = window.URL.createObjectURL(file)
+            $('.title_img img').attr('src', src)
+          }
+        })
+
+        //提交按钮
+        $('.right input[name="submit"]').val($('.main + input').val()).keyup(update.buttonText).blur(update.buttonText)
+        //获取按钮字体大小
+        var buttonStyle = window.getComputedStyle($('.main + input')[0])
+        var buttonSize = buttonStyle.fontSize.replace('px', '')
+        var buttonRadius = buttonStyle.borderRadius.replace('px', '')
+        $('.right input[name="sub-size"]').val(buttonSize).keyup(update.buttonSize).blur(update.buttonSize)
+        // 圆角
+        $('.right input[name="sub-radius"]').val(buttonRadius).keyup(update.buttonRadius).blur(update.buttonRadius)
+
+      // 底图
+      // $('.right input[name="bg-img"]').change(function () {
+      //   var file = document.querySelector('input[name="bg-img"]').files[0]
+      //   if(!/.(gif|jpg|jpeg|png|gif|jpg|png)$/.test(file.name)){
+      //     alert("图片类型必须是.gif,jpeg,jpg,png中的一种")
+      //     $('.right input[name="bg-img"]').val('')
+      //   } else {
+      //     var src = window.URL.createObjectURL(file)
+      //     $('.wrapper').css({'background': 'url' + '(' + src + ')'})
+      //   }
+      // })
+
+    })
+
+    //活动时间
+	  $('input[name="time"]').daterangepicker({
+	        timePicker: true,
+	        timePicker24Hour: true,
+	        timePickerIncrement: 30,
+	        locale: {
+	            format: 'YYYY-MM-DD h:mm',
+	            applyLabel: "确定",
+	            cancelLabel: "取消",
+	            weekLabel: "星期",
+	            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+	            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+	        },
+	    });
+    </script>
+</body>
+</html>
