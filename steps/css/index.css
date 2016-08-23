@@ -27,6 +27,7 @@
   display: inline-block;
   width: 40%;
   margin-left: 5%;
+  cursor: pointer;
 }
 
 .bwizard .well section.right input[type="number"] {
@@ -103,4 +104,14 @@
   width: 375px;
   height: 600px;
   overflow-y: auto;
+}
+
+.right table th, td{
+  text-align: center;
+}
+
+.right table input[type="radio"] {
+  width: 100%;
+  height: 80%;
+  cursor: pointer;
 }

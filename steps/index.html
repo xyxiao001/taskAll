@@ -5,10 +5,11 @@
   <title>报名活动</title>
   <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="css/steps.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="css/editor.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="css/index.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/editor.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="css/hospital.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/daterangepicker.css"/>
+  <link rel="stylesheet" href="css/index.css" media="screen" title="no title" charset="utf-8">
+
 </head>
 
 <body>
@@ -104,6 +105,27 @@
             <span>px</span>
           </div>
           <div class="form-group">
+            <label for="info">填写信息:</label>
+            <div class="form-group control-info">
+              <button type="button" class="btn btn-success" name="add">新增</button>
+              <button type="button" class="btn btn-warning" name="up">上移</button>
+              <button type="button" class="btn btn-info" name="down">下移</button>
+              <button type="button" class="btn btn-danger" name="del">删除</button>
+            </div>
+            <table class="table table-bordered table-hover table-responsive show-info">
+              <thead>
+                <tr>
+                  <th>操作</th>
+                  <th>项目名称</th>
+                  <th>类型</th>
+                  <th>是否必填</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+              </table>
+          </div>
+          <div class="form-group">
             <label for="title">按钮文字:</label>
             <input type="text" class="form-control" name="submit" value="">
           </div>
@@ -186,24 +208,25 @@
   <script src="js/jquery.js"></script>
   <script src="js/steps.js"></script>
   <script src="js/editor.js"></script>
+  <script src="js/layer.js"></script>
   <script src="js/moment.min.js"></script>
   <script src="js/daterangepicker.js"></script>
   <script type="text/javascript">
     //开启步骤
-    $("#steps").bwizard();
+    $("#steps").bwizard()
 
     // 下一步的限制方法
-    var myNext = function () {};
+    var myNext = function () {}
 
     // 生成编辑器
-    var editor = new wangEditor('edit');
+    var editor = new wangEditor('edit')
     editor.create();
 
     // 获取编辑器区域完整html代码
-    var html = editor.$txt.html();
+    var html = editor.$txt.html()
 
     // 获取编辑器纯文本内容
-    var text = editor.$txt.text();
+    var text = editor.$txt.text()
 
     // 获取模板内容 动态添加进表单
     var data = {
@@ -216,10 +239,10 @@
                     '<p>【提醒】 如放弃参与，请在就诊前一天致电告知</p>' +
                     '<p>【提醒】 活动当天请携带以往相关检查资料。</p>',
       info: [
-        {id: 1, name: 'username', text: '姓名', type: 'text'},
-        {id:2, name: 'phone', text: '电话', type: 'text'},
-        {id:3, name: 'IDcard', text: '身份证', type:'text'},
-        {id:4, name: 'address', text: '地址', type: 'text'}
+        {id: 0, name: 'username', text: '姓名', type: '文本输入框', required: true},
+        {id: 1, name: 'phone', text: '电话', type: '手机号输入框', required: true},
+        {id: 2, name: 'IDcard', text: '身份证', type:'身份证输入框', required: false},
+        {id: 3, name: 'address', text: '地址', type: '文本输入框', required: false}
       ],
       fontSize: '14'
     }
@@ -236,7 +259,7 @@
           $('.wrapper').css({fontSize: $('.right input[name="font-size"]').val() + 'px'})
         },
         buttonText: function () {
-          $('.main + input').val($('.right input[name="submit"]').val() + 'px')
+          $('.main + input').val($('.right input[name="submit"]').val())
         },
         buttonSize: function () {
           $('.main + input').css({fontSize: $('.right input[name="sub-size"]').val() + 'px'})
@@ -289,6 +312,125 @@
       //   }
       // })
 
+      // 操作输入框  填写信息
+      // 显示表格方法
+      function showInfo(data, checked) {
+        // 清空tbody
+        $('table.show-info tbody').html('')
+
+        data.forEach(function (item, index) {
+          item.required = item.required === true ? '是' : '否'
+          var tr = document.createElement('tr')
+          var td1 = document.createElement('td')
+          var radio = document.createElement('input')
+          radio.type = 'radio'
+          radio.name = 'serial'
+          radio.value = index
+          if (index === checked) {
+            radio.checked = 'checked'
+          }
+          td1.appendChild(radio)
+          var td2 = document.createElement('td')
+          td2.innerHTML = item.text
+          var td3 = document.createElement('td')
+          td3.innerHTML = item.type
+          var td4 = document.createElement('td')
+          td4.innerHTML = item.required
+          tr.appendChild(td1)
+          tr.appendChild(td2)
+          tr.appendChild(td3)
+          tr.appendChild(td4)
+          $('table.show-info tbody').append(tr)
+        })
+      }
+      showInfo(data.info, 0)
+
+      // 保存临时 操作的表格数据
+      var show = data.info
+      var tableInfo = {
+        add: function () {
+          console.log('add')
+        },
+
+        // 上移操作
+        up: function () {
+          var hasChecked = false
+          var checked = ''
+          $('.show-info input[type="radio"]').each(function (index, val) {
+            if (val.checked) {
+              hasChecked = val.checked
+              checked = val
+            }
+          })
+          if (!hasChecked) {
+            layer.msg('还没选呢！')
+          } else {
+            if (~~(checked.value) === 0) {
+              layer.msg('已经在最上面了！')
+            } else {
+              // 执行换位操作
+              //保存当前对象
+              var old = show[checked.value - 1]
+              show[checked.value - 1] = show[checked.value]
+              show[checked.value] = old
+              showInfo(show, checked.value - 1)
+            }
+          }
+        },
+
+        //下移操作
+        down: function () {
+          var hasChecked = false
+          var checked = ''
+          $('.show-info input[type="radio"]').each(function (index, val) {
+            if (val.checked) {
+              hasChecked = val.checked
+              checked = val
+            }
+          })
+          if (!hasChecked) {
+            layer.msg('还没选呢！')
+          } else {
+            if (~~(checked.value) === show.length - 1) {
+              layer.msg('下面没地方了！')
+            } else {
+              // 执行换位操作
+              //保存当前对象
+              var old = show[~~(checked.value) + 1]
+              show[~~(checked.value) + 1] = show[checked.value]
+              show[checked.value] = old
+              showInfo(show, ~~(checked.value) + 1)
+            }
+          }
+        },
+
+        del: function () {
+          var hasChecked = false
+          var checked = ''
+          $('.show-info input[type="radio"]').each(function (index, val) {
+            if (val.checked) {
+              hasChecked = val.checked
+              checked = val
+            }
+          })
+          if (!hasChecked) {
+            layer.msg('还没选呢！')
+          } else {
+            layer.confirm('确认删除?', {icon: 2, title: '提示', offset: '200px'}, function (index) {
+              // 删除该项
+              show.splice(checked.value, 1)
+              showInfo(show, 0)
+              layer.close(index)
+            })
+          }
+        }
+      }
+
+      // 按钮点击事件
+      $('.control-info button').click(function () {
+        // 表格事件
+        tableInfo[this.name]()
+      })
     })
 
     //活动时间
