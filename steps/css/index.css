@@ -115,3 +115,11 @@
   height: 80%;
   cursor: pointer;
 }
+
+p.info {
+  margin-bottom: 10px;
+}
+
+p.info + .control-info {
+  margin-bottom: 20px;
+}

@@ -105,7 +105,7 @@
             <span>px</span>
           </div>
           <div class="form-group">
-            <label for="info">填写信息:</label>
+            <p class="info">填写信息:</p>
             <div class="form-group control-info">
               <button type="button" class="btn btn-success" name="add">新增</button>
               <button type="button" class="btn btn-warning" name="up">上移</button>
@@ -162,13 +162,13 @@
           </div>
           <div class="form-group">
             <label for="title">积分处理:</label>
-           	<label class="checkbox-inline">
+           	<label class="checkbox-inline" style="padding-left:0px;">
 							<input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>奖励
 						</label>
 						<label class="checkbox-inline">
 							<input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2">消耗
 						</label>
-						<input type="text"class="form-control" />
+						<input type="text"class="form-control" style="width: 28.5%;"/>
           </div>
           <div class="form-group">
             <label for="title">后续福利:</label>
@@ -186,7 +186,7 @@
           </div>
           <div class="form-group">
 		        <label for="title">活动标签:</label>
-		        <input type="text" class="form-control" name="title" value="">
+		        <input type="text" class="form-control" name="title" value="" style="width: 55%;">
 		        <span>点击打开标签库</span>
           </div>
         </section>
@@ -345,6 +345,24 @@
       }
       showInfo(data.info, 0)
 
+      // 修改模板的填写信息
+      function changeInfo(data) {
+        $('.content .main').html('')
+        data.forEach(function (item) {
+          var div = document.createElement('div')
+          div.className = 'form-group'
+          var label = document.createElement('label')
+          label.setAttribute('for', item.name)
+          label.innerHTML = '【'+ item.text + '】'
+          var input = document.createElement('input')
+          input.setAttribute('id', item.name)
+          input.type = 'text'
+          div.appendChild(label)
+          div.appendChild(input)
+          $('.content .main').append(div)
+        })
+      }
+
       // 保存临时 操作的表格数据
       var show = data.info
       var tableInfo = {
@@ -374,6 +392,7 @@
               show[checked.value - 1] = show[checked.value]
               show[checked.value] = old
               showInfo(show, checked.value - 1)
+              changeInfo(show)
             }
           }
         },
@@ -400,6 +419,7 @@
               show[~~(checked.value) + 1] = show[checked.value]
               show[checked.value] = old
               showInfo(show, ~~(checked.value) + 1)
+              changeInfo(show)
             }
           }
         },
@@ -420,6 +440,7 @@
               // 删除该项
               show.splice(checked.value, 1)
               showInfo(show, 0)
+              changeInfo(show)
               layer.close(index)
             })
           }
