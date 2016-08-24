@@ -203,9 +203,36 @@
         </section>
       </div>
     </div>
-  </div>
 
+    <div class="modal fade" id="changeModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">选择模板</h4></div>
+                <div class="modal-body">
+                  <div class="show-item row">
+                    <div class="item col-md-6">
+                      <img src="img/modal1.png" alt="" />
+                      <p>蓝色奥运</p>
+                    </div>
+                    <div class="item col-md-6">
+                      <img src="img/modal2.png" alt="" />
+                        <p>简洁商务风</p>
+                    </div>
+                    <div class="item col-md-6">
+                      <img src="img/modal3.png" alt="" />
+                        <p>红色喜庆</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
   <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
   <script src="js/steps.js"></script>
   <script src="js/editor.js"></script>
   <script src="js/moment.min.js"></script>
@@ -253,19 +280,19 @@
           $('span.title-name').text($('.right input[name="activity-title"]').val())
         },
         introdution: function () {
-          $('.introdution .content').html(editor.$txt.html())
+          $('.template .introdution .content').html(editor.$txt.html())
         },
         fontSize: function () {
-          $('.wrapper').css({fontSize: $('.right input[name="font-size"]').val() + 'px'})
+          $('.template .wrapper').css({fontSize: $('.right input[name="font-size"]').val() + 'px'})
         },
         buttonText: function () {
-          $('.main + input').val($('.right input[name="submit"]').val())
+          $('.template .main + input').val($('.right input[name="submit"]').val())
         },
         buttonSize: function () {
-          $('.main + input').css({fontSize: $('.right input[name="sub-size"]').val() + 'px'})
+          $('.template .main + input').css({fontSize: $('.right input[name="sub-size"]').val() + 'px'})
         },
         buttonRadius: function () {
-          $('.main + input').css({borderRadius: $('.right input[name="sub-radius"]').val() + 'px'})
+          $('.template .main + input').css({borderRadius: $('.right input[name="sub-radius"]').val() + 'px'})
         }
       }
       // 活动标题
@@ -345,7 +372,7 @@
 
       // 修改模板的填写信息
       function changeInfo(data) {
-        $('.content .main').html('')
+        $('.template .content .main').html('')
         data.forEach(function (item) {
           var div = document.createElement('div')
           div.className = 'form-group'
@@ -357,7 +384,7 @@
           input.type = 'text'
           div.appendChild(label)
           div.appendChild(input)
-          $('.content .main').append(div)
+          $('.template .content .main').append(div)
         })
       }
 
@@ -406,7 +433,7 @@
             layer.msg('还没选呢！')
           } else {
             if (~~(checked.value) === 0) {
-              layer.msg('已经在最上面了！')
+              layer.msg('已经在最上面了！', {offset: '200px', time: 1500 })
             } else {
               // 执行换位操作
               //保存当前对象
@@ -433,7 +460,7 @@
             layer.msg('还没选呢！')
           } else {
             if (~~(checked.value) === show.length - 1) {
-              layer.msg('下面没地方了！')
+              layer.msg('下面没地方了！', {offset: '200px', time: 1500 })
             } else {
               // 执行换位操作
               //保存当前对象
@@ -478,7 +505,12 @@
 
     //更换模板样式
     $('.changeModel').click(function () {
-      console.log(1)
+      $('#changeModel').modal('show')
+    })
+
+    // 点击模板
+    $('.show-item .item').click(function () {
+      $('#changeModel').modal('hide')
     })
 
     //活动时间
