@@ -74,6 +74,13 @@
 .page2 .form-group input{
 	margin-left: 0% !important;
 }
+.page2 .form-group label{
+	margin-top: 5px;
+}
+.page2 .form-group span{
+	display: flex;
+	align-items: center;
+}
 /*效果预览*/
 .page3 .right figure{
 	display: flex;
@@ -122,4 +129,19 @@ p.info {
 
 p.info + .control-info {
   margin-bottom: 20px;
+}
+
+.layui-layer-content .form-group label {
+  display: inline-block;
+  width: 30%;
+}
+
+.layui-layer-content .form-group input[type="text"], .layui-layer-content .form-group select {
+  display: inline-block;
+  width: 60%;
+}
+
+.required label.radioText {
+  width: 20%;
+  padding-left: 6px;
 }

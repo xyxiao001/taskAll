@@ -74,7 +74,7 @@
       </ol>
       <div class="page1">
         <!-- iphone6 375*667  iphone5 320*568-->
-        <button type="button" class="btn btn-primary">更换模板样式</button>
+        <button type="button" class="btn btn-primary changeModel">更换模板样式</button>
         <section class="right">
           <div class="form-group">
             <label for="title">活动标题:</label>
@@ -182,12 +182,12 @@
 		      <div class="form-group">
 		        <label for="title">活动分享图片:</label>
 		        <input type="file" class="form-control" name="title" value="">
-		        <span>建议尺寸40×40</span>
+		        <span> 建议尺寸40×40 </span>
           </div>
           <div class="form-group">
 		        <label for="title">活动标签:</label>
 		        <input type="text" class="form-control" name="title" value="" style="width: 55%;">
-		        <span>点击打开标签库</span>
+		        <span> 点击打开标签库 </span>
           </div>
         </section>
       </div>
@@ -208,9 +208,9 @@
   <script src="js/jquery.js"></script>
   <script src="js/steps.js"></script>
   <script src="js/editor.js"></script>
-  <script src="js/layer.js"></script>
   <script src="js/moment.min.js"></script>
   <script src="js/daterangepicker.js"></script>
+  <script src="js/layer.js"></script>
   <script type="text/javascript">
     //开启步骤
     $("#steps").bwizard()
@@ -239,10 +239,10 @@
                     '<p>【提醒】 如放弃参与，请在就诊前一天致电告知</p>' +
                     '<p>【提醒】 活动当天请携带以往相关检查资料。</p>',
       info: [
-        {id: 0, name: 'username', text: '姓名', type: '文本输入框', required: true},
-        {id: 1, name: 'phone', text: '电话', type: '手机号输入框', required: true},
-        {id: 2, name: 'IDcard', text: '身份证', type:'身份证输入框', required: false},
-        {id: 3, name: 'address', text: '地址', type: '文本输入框', required: false}
+        {id: 0, name: 'username', text: '【姓名】', type: '文本输入框', required: true},
+        {id: 1, name: 'phone', text: '【电话】', type: '手机号输入框', required: true},
+        {id: 2, name: 'IDcard', text: '【身份证】', type:'身份证输入框', required: false},
+        {id: 3, name: 'address', text: '【地址】', type: '文本输入框', required: false}
       ],
       fontSize: '14'
     }
@@ -317,9 +317,7 @@
       function showInfo(data, checked) {
         // 清空tbody
         $('table.show-info tbody').html('')
-
         data.forEach(function (item, index) {
-          item.required = item.required === true ? '是' : '否'
           var tr = document.createElement('tr')
           var td1 = document.createElement('td')
           var radio = document.createElement('input')
@@ -335,7 +333,7 @@
           var td3 = document.createElement('td')
           td3.innerHTML = item.type
           var td4 = document.createElement('td')
-          td4.innerHTML = item.required
+          td4.innerHTML = item.required === true ? '是' : '否'
           tr.appendChild(td1)
           tr.appendChild(td2)
           tr.appendChild(td3)
@@ -353,7 +351,7 @@
           div.className = 'form-group'
           var label = document.createElement('label')
           label.setAttribute('for', item.name)
-          label.innerHTML = '【'+ item.text + '】'
+          label.innerHTML = item.text
           var input = document.createElement('input')
           input.setAttribute('id', item.name)
           input.type = 'text'
@@ -367,7 +365,31 @@
       var show = data.info
       var tableInfo = {
         add: function () {
-          console.log('add')
+          layer.open({
+            title: '新增',
+            content: '<div class="form-group"><label for="add-name">项目名称:</label><input type="text" name="add-name" class="form-control" id="add-name"></div>' +
+                     '<div class="form-group"><label for="add-type">项目类型:</label><select class="form-control select-type">' +
+                     '<option>文本输入框</option><option>手机号输入框</option><option>文件上传框</option></select></div>' +
+                     '<div class="form-group required"><label for="add-name">是否必填:</label><input type="radio" name="isRequired" id="required"><label class="radioText" for="required">是</label>'+
+                     '<input type="radio" name="isRequired" id="notRequired" checked="true"><label class="radioText" for="notRequired">否</label></div>',
+            area: '400px',
+            yes: function (index) {
+              if($.trim($('#add-name').val()).length === 0) {
+                layer.tips('请输入新增项目名称！', '#add-name')
+              } else {
+                // 新增
+                var addItem = {}
+                addItem.text = $.trim($('#add-name').val())
+                addItem.type = $('select.select-type').val()
+                addItem.required = $('#required').prop('checked')
+                addItem.name = 'new'
+                show.push(addItem)
+                showInfo(show, 0)
+                changeInfo(show)
+                layer.close(index)
+              }
+            }
+          })
         },
 
         // 上移操作
@@ -452,6 +474,11 @@
         // 表格事件
         tableInfo[this.name]()
       })
+    })
+
+    //更换模板样式
+    $('.changeModel').click(function () {
+      console.log(1)
     })
 
     //活动时间
