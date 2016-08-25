@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>报名活动</title>
+  <link rel="stylesheet" href="css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/steps.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/editor.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="css/hospital.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="css/daterangepicker.css"/>
+  <link rel="stylesheet" href="css/index.css" media="screen" title="no title" charset="utf-8">
+
+</head>
+
+<body>
+  <div class="content">
+    <div class="template">
+      <div class="b_title">
+        <div> < 返回 </div>
+        <span class="title-name" id="title-name">浙江大学国际医院讲座报名</span>
+        <div>···</div>
+      </div>
+      <section class="left">
+        <div class="wrapper" id="hospital">
+          <div class="title_img">
+            <img src="img/img.png" id="title-img"/>
+          </div>
+          <div class="introdution">
+            <img class="intro_img" src="img/description.png"/>
+            <div class="content" id="introdution">
+              <p>【报名时间】 即日起截止至2016-9-15 12: 00</p>
+              <p>【报名方式】 请准确填写以下内容报名！</p>
+              <p>【报名人数】 仅限100人，先到先得！</p>
+              <p>【活动时间】 2016-9-15 （周日）9:00-11:00</p>
+              <p>【地址】 杭州市下城区东新路848号浙大国际医院</p>
+              <p>【提醒】 如放弃参与，请在就诊前一天致电告知</p>
+              <p>【提醒】 活动当天请携带以往相关检查资料。</p>
+            </div>
+          </div>
+          <div class="message">
+            <img class="mes_img" src="img/message.png"/>
+             <div class="content">
+              <form action="" method="post">
+                <div class="main" id="main">
+                  <div class="form-group">
+                    <label for="username">【姓名】</label>
+                    <input type="text" id="username" />
+                  </div>
+                  <div class="form-group">
+                    <label for="tel">【电话】</label>
+                    <input type="text" id="tel" />
+                  </div>
+                  <div class="form-group">
+                    <label for="id_num">【身份证】</label>
+                    <input type="text" id="id_num" />
+                  </div>
+                  <div class="form-group">
+                    <label for="address">【地址】</label>
+                    <input type="text" id="address" />
+                  </div>
+                </div>
+                <input class="submit" type="submit" value="提交"/>
+              </form>
+             </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="steps">
+      <ol>
+        <li>页面样式</li>
+        <li>活动页面</li>
+        <li>活动预览</li>
+      </ol>
+      <div class="page1">
+        <!-- iphone6 375*667  iphone5 320*568-->
+        <button type="button" class="btn btn-primary changeModel">更换模板样式</button>
+        <section class="right"></section>
+      </div>
+      <!--page2-->
+      <div class="page2">
+        <section class="right">
+          <div class="form-group">
+            <label for="title">活动时间:</label>
+            <input type="text" name="time" class="form-control" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">最大参与人数:</label>
+            <input type="number" class="form-control" name="title" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">前置任务:</label>
+            <input type="text" class="form-control" name="title" value="+选择已有活动">
+          </div>
+          <div class="form-group">
+            <label for="title">会员等级:</label>
+            <input type="text" class="form-control" name="title" value="">
+          </div>
+          <div class="form-group">
+            <label for="title">积分处理:</label>
+           	<label class="checkbox-inline" style="padding-left:0px;">
+							<input type="radio" name="optionsRadiosinline" id="optionsRadios3" value="option1" checked>奖励
+						</label>
+						<label class="checkbox-inline">
+							<input type="radio" name="optionsRadiosinline" id="optionsRadios4"  value="option2">消耗
+						</label>
+						<input type="text"class="form-control" style="width: 28.5%;"/>
+          </div>
+          <div class="form-group">
+            <label for="title">后续福利:</label>
+            <input type="text" class="form-control" name="title" value="+选择已有活动">
+          </div>
+          <div class="form-group">
+            <label for="title"></label>
+            <input type="checkbox" id="join_num"/>
+            <label for="join_num">显示已参与人数</label>
+          </div>
+		      <div class="form-group">
+		        <label for="title">活动分享图片:</label>
+		        <input type="file" class="form-control" name="title" value="">
+		        <span> 建议尺寸40×40 </span>
+          </div>
+          <div class="form-group">
+		        <label for="title">活动标签:</label>
+		        <input type="text" class="form-control" name="title" value="" style="width: 55%;">
+		        <span> 点击打开标签库 </span>
+          </div>
+        </section>
+      </div>
+      <!--page3-->
+      <div class="page3">
+        <section class="right">
+        		<figure>
+        			<caption>活动预览:</caption>
+        			<img src="img/qrcode.png" alt="活动二维码" />
+        			<button>下载二维码</button>
+        		</figure>
+        		<p>活动链接： <a href="https://modao.cc/app/M4mXBdsDxtnqs9chDuufiyRdxNxWnEV">https://modao.cc/app/M4mXBdsDxtnqs9chDuufiyRdxNxWnEV</a></p>
+        </section>
+      </div>
+    </div>
+
+    <div class="modal fade" id="changeModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">选择模板</h4></div>
+                <div class="modal-body">
+                  <div class="show-item row">
+                    <div class="item col-md-6">
+                      <img src="img/modal1.png" alt="" />
+                      <p>蓝色奥运</p>
+                    </div>
+                    <div class="item col-md-6">
+                      <img src="img/modal2.png" alt="" />
+                        <p>简洁商务风</p>
+                    </div>
+                    <div class="item col-md-6">
+                      <img src="img/modal3.png" alt="" />
+                        <p>红色喜庆</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/steps.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/moment.min.js"></script>
+  <script src="js/daterangepicker.js"></script>
+  <script src="js/layer.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

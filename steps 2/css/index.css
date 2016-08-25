@@ -1,0 +1,162 @@
+.well>div {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  overflow: hidden;
+}
+
+
+.bwizard .well section.right {
+  display: inline-block;
+  width: 700px;
+  margin-top: 40px;
+}
+
+.bwizard .well section.right  label {
+  width: 20%;
+  font-weight: normal;
+}
+
+.bwizard .well section.right input[type="text"] {
+  display: inline-block;
+  width: 70%;
+  margin-left: 5%;
+}
+
+.bwizard .well section.right input[type="file"] {
+  display: inline-block;
+  width: 40%;
+  margin-left: 5%;
+  cursor: pointer;
+}
+
+.bwizard .well section.right input[type="number"] {
+  display: inline-block;
+  width: 10%;
+  margin-left: 5%;
+}
+
+.bwizard .well section.right input[type="file"] + span {
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.bwizard .well section.right input[name="submit"] {
+  width: 15%;
+}
+
+.bwizard .well section.right input[name="sub-size"] {
+  width: 15%;
+}
+
+.bwizard .well section.right input[name="sub-radius"] {
+  width: 15%;
+}
+
+.b_title {
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0 1rem;
+  color: #fff;
+  background: #000;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 355px;
+}
+
+/*活动规则*/
+.page2 .form-group{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+.page2 .form-group input{
+	margin-left: 0% !important;
+}
+.page2 .form-group label{
+	margin-top: 5px;
+}
+.page2 .form-group span{
+	display: flex;
+	align-items: center;
+}
+/*效果预览*/
+.page3 .right figure{
+	display: flex;
+	justify-content: flex-start;
+	margin-bottom: 2rem;
+}
+.page3 .right figure img{
+	margin: 0 1.5rem;
+}
+
+.page3 .right figure button{
+	align-self: flex-end;
+}
+.page3 .right p a{
+	color: blue;
+}
+
+.template {
+  position: absolute;
+  top: 160px;
+  left: 20px;
+  z-index: 10;
+}
+
+.template section.left {
+  display: inline-block;
+  margin: auto;
+  width: 375px;
+  height: 600px;
+  overflow-y: auto;
+}
+
+.right table th, td{
+  text-align: center;
+}
+
+.right table input[type="radio"] {
+  width: 100%;
+  height: 80%;
+  cursor: pointer;
+}
+
+p.info {
+  margin-bottom: 10px;
+}
+
+p.info + .control-info {
+  margin-bottom: 20px;
+}
+
+.layui-layer-content .form-group label {
+  display: inline-block;
+  width: 30%;
+}
+
+.layui-layer-content .form-group input[type="text"], .layui-layer-content .form-group select {
+  display: inline-block;
+  width: 60%;
+}
+
+.required label.radioText {
+  width: 20%;
+  padding-left: 6px;
+}
+
+.modal-dialog {
+  min-width: 800px;
+  max-width: 600px;
+  overflow-y: auto;
+}
+
+.item p {
+  padding: 10px 0;
+  text-align: center;
+}
+
+.btn {
+  margin-right: 5px;
+}
