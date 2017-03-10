@@ -233,10 +233,16 @@ textarea.addEventListener('keydown', function (event) {
     rankol.appendChild(li)
   }
   var row = document.getElementsByTagName('li')
-  if (event.keyCode === 8 && length <= row.length) {
-    if (row.length > 1 && content[content.length - 1].length === 0) {
-      rankol.removeChild(row[row.length - 1])
-    }
+  if (event.keyCode === 8) {
+    rankol.innerHTML = ''
+    content.forEach(function (item, index) {
+      console.log(content)
+      if (index < content.length) {
+        var li = document.createElement('li')
+        li.innerHTML = index + 1
+        rankol.appendChild(li)
+      }
+    })
   }
 })
 

@@ -66,7 +66,7 @@ table tbody td {
   margin-bottom: 10px;
   min-height: 200px;
   text-decoration: none;
-  line-height: 24px;
+  line-height: 25px;
   resize: none;
 }
 
@@ -87,7 +87,7 @@ table tbody td {
   list-style-type: none;
   width: 20px;
   text-align: center;
-  height: 24px;
+  line-height: 25px;
 }
 
 .textarea ol li:first-child {
